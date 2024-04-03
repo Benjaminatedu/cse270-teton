@@ -42,5 +42,4 @@ def test_users_endpoint_unauthorized(mock_requests_get):
     
     assert response.status_code == 200
 
-if __name__ == "__main__":
-    pytest.main()
+pytest.main()
