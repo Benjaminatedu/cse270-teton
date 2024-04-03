@@ -18,7 +18,7 @@ class MockResponse:
 
 def test_data_endpoint(mock_requests_get):
     # Make the HTTP GET request
-    response = requests.get('http://127.0.0.1:8000/data/all')
+    response = requests.get('https://benjaminatedu.github.io/cse270-teton/data/all')
 
     # Verify the response status code
     assert response.status_code == 200
@@ -34,4 +34,13 @@ def test_data_endpoint(mock_requests_get):
     assert isinstance(first_business, dict)
     assert 'name' in first_business
     assert first_business['name'] == 'Teton Elementary'
-    # Add additional assertions as needed based on the expected response
+
+def test_users_endpoint_unauthorized(mock_requests_get):
+    url = 'https://benjaminatedu.github.io/cse270-teton/users'
+    params = {'username': 'admin', 'password': 'admin'}
+    response = requests.get(url, params=params)
+    
+    assert response.status_code == 200
+
+if __name__ == "__main__":
+    pytest.main()
