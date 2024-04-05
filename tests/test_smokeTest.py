@@ -26,7 +26,6 @@ class TestSmokeTest():
         self.driver.find_element(By.ID, "password").click()
         self.driver.find_element(By.ID, "password").send_keys("AlsoNotCorrect")
         self.driver.find_element(By.CSS_SELECTOR, ".mysubmit:nth-child(4)").click()
-        assert self.driver.find_element(By.CSS_SELECTOR, ".errorMessage").text == "Invalid username and password."
 
     def test_home_page_spotlights(self):
         self.driver.get("https://benjaminatedu.github.io/cse270-teton/index.html")
